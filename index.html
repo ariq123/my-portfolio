@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ariq Aqilla - Fullstack & IT Specialist</title>
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%2338bdf8%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><polyline points=%2216 18 22 12 16 6%22></polyline><polyline points=%228 6 2 12 8 18%22></polyline></svg>">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0b1121',    // Lebih gelap untuk kontras canvas
+                        cardBg: '#1e293b',
+                        accent: '#38bdf8',    // Cyan Neon
+                        accentHover: '#0ea5e9',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'spin-slow': 'spin 20s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Background Canvas agar berada di paling belakang */
+        #canvas-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: #0b1121; /* Fallback color */
+        }
+        
+        .text-gradient {
+            background: linear-gradient(to right, #38bdf8, #a855f7);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+        /* Scrollbar Keren */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, #38bdf8, #a855f7); border-radius: 5px; }
+    </style>
+</head>
+<body class="text-slate-300 font-sans antialiased selection:bg-accent selection:text-white overflow-x-hidden">
+
+    <canvas id="canvas-bg"></canvas>
+
+    <section class="min-h-screen flex items-center justify-center relative px-6 py-20">
+        <div class="container mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-12">
+            
+            <div class="md:w-3/5 space-y-6 z-10" data-aos="fade-right" data-aos-duration="1000">
+                <div class="inline-block px-4 py-1.5 rounded-full border border-accent/30 bg-accent/10 backdrop-blur-md text-sm font-mono text-accent mb-2 shadow-[0_0_15px_rgba(56,189,248,0.4)] animate-pulse">
+                    <span class="mr-2">⚡</span>Available for Projects
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-bold text-white leading-tight">
+                    I'm <span class="text-gradient">Ariq Aqilla</span>
+                </h1>
+                
+                <h2 class="text-2xl md:text-3xl text-slate-400 font-medium h-14">
+                    <span class="typewrite text-white border-b-2 border-accent" data-period="2000" data-type='[ "Full-Stack Developer.", "MERN Stack Expert.", "IT Specialist.", "IoT Engineer." ]'></span>
+                </h2>
+                
+                <p class="text-lg text-slate-400 max-w-xl leading-relaxed backdrop-blur-sm bg-darkBg/30 p-4 rounded-xl border border-white/5">
+                    Transforming ideas into digital reality. Experienced in building scalable web apps with <strong>MERN Stack</strong> & <strong>Laravel</strong>, while managing robust <strong>IT Infrastructure</strong> and <strong>IoT Systems</strong>.
+                </p>
+
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="https://drive.google.com/file/d/17e4Bh7Nmz33q5e-tpwJGvk7ijTKGdKWw/view?usp=drive_link" download class="px-8 py-4 bg-gradient-to-r from-accent to-blue-600 text-white font-bold rounded-xl hover:shadow-[0_0_30px_rgba(56,189,248,0.6)] transition-all duration-300 flex items-center gap-2 transform hover:-translate-y-1" target="_blank">
+                        Download CV <i class="fas fa-download"></i>
+                    </a>
+                    <a href="http://tiny.cc/Creative-Portfolio" class="px-8 py-4 border border-slate-600 bg-darkBg/50 backdrop-blur-sm rounded-xl hover:border-accent hover:text-accent transition-all duration-300 flex items-center gap-2" target="_blank">
+                        View Projects <i class="fas  fa-briefcase"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="md:w-2/5 flex justify-center relative z-10" data-aos="zoom-in" data-aos-duration="1200">
+                <div class="absolute w-[450px] h-[450px] border border-accent/20 rounded-full animate-spin-slow box-border border-dashed"></div>
+                <div class="absolute w-[350px] h-[350px] border border-purple-500/20 rounded-full animate-spin-slow" style="animation-direction: reverse; animation-duration: 25s;"></div>
+                
+                <div class="w-72 h-72 md:w-80 md:h-80 rounded-full flex items-center justify-center overflow-hidden border-4 border-slate-700 shadow-[0_0_60px_rgba(56,189,248,0.3)] animate-float relative group bg-darkBg">
+                    <div class="absolute inset-0 bg-gradient-to-t from-darkBg via-transparent to-transparent z-10 opacity-60"></div>
+                    <img src="img/profile.png" alt="Ariq Aqilla" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 z-0">
+                    
+                    <div class="absolute bottom-6 right-8 w-14 h-14 bg-slate-900/90 backdrop-blur rounded-full flex items-center justify-center border border-accent/50 shadow-lg z-20 animate-bounce">
+                        <i class="fas fa-laptop-code text-accent text-xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 relative backdrop-blur-sm bg-darkBg/40">
+        <div class="container mx-auto px-6">
+            <div class="mb-16 text-center" data-aos="fade-down">
+                <h2 class="text-4xl font-bold text-white mb-4">Technical <span class="text-gradient">Arsenal</span></h2>
+                <p class="text-slate-400">Comprehensive skillset across software and hardware domains.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <div class="bg-cardBg/80 backdrop-blur-md p-6 rounded-2xl border border-white/5 hover:border-accent/50 transition-all duration-300 group hover:transform hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(56,189,248,0.15)]" data-aos="flip-up" data-aos-delay="0">
+                    <div class="flex items-center gap-3 mb-6 border-b border-white/10 pb-4">
+                        <i class="fab fa-react text-3xl text-[#61DAFB]"></i>
+                        <h3 class="text-xl font-bold text-white">Frontend Dev</h3>
+                    </div>
+                    <ul class="space-y-3 text-slate-400 text-sm">
+                        <li class="flex items-center justify-between"><span>React.js & Next.js</span> <i class="fab fa-react text-accent"></i></li>
+                        <li class="flex items-center justify-between"><span>Tailwind CSS</span> <i class="fab fa-css3 text-blue-400"></i></li>
+                        <li class="flex items-center justify-between"><span>Vite & Bootstrap</span> <i class="fas fa-bolt text-yellow-400"></i></li>
+                        <li class="flex items-center justify-between"><span>JavaScript (ES6+)</span> <i class="fab fa-js text-yellow-300"></i></li>
+                        <li class="flex items-center justify-between"><span>HTML5 & CSS3</span> <i class="fab fa-html5 text-orange-500"></i></li>
+                    </ul>
+                </div>
+
+                <div class="bg-cardBg/80 backdrop-blur-md p-6 rounded-2xl border border-white/5 hover:border-accent/50 transition-all duration-300 group hover:transform hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(104,160,99,0.15)]" data-aos="flip-up" data-aos-delay="100">
+                    <div class="flex items-center gap-3 mb-6 border-b border-white/10 pb-4">
+                        <i class="fab fa-node text-3xl text-[#68A063]"></i>
+                        <h3 class="text-xl font-bold text-white">Backend Dev</h3>
+                    </div>
+                    <ul class="space-y-3 text-slate-400 text-sm">
+                        <li class="flex items-center justify-between"><span>Node.js & Express</span> <i class="fab fa-node-js text-green-500"></i></li>
+                        <li class="flex items-center justify-between"><span>PHP & Laravel</span> <i class="fab fa-laravel text-red-500"></i></li>
+                        <li class="flex items-center justify-between"><span>Python (Django)</span> <i class="fab fa-python text-blue-400"></i></li>
+                        <li class="flex items-center justify-between"><span>RESTful API & JWT</span> <i class="fas fa-key text-gray-400"></i></li>
+                        <li class="flex items-center justify-between"><span>C++ Basics</span> <i class="fas fa-code text-blue-600"></i></li>
+                    </ul>
+                </div>
+
+                <div class="bg-cardBg/80 backdrop-blur-md p-6 rounded-2xl border border-white/5 hover:border-accent/50 transition-all duration-300 group hover:transform hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(255,165,0,0.15)]" data-aos="flip-up" data-aos-delay="200">
+                    <div class="flex items-center gap-3 mb-6 border-b border-white/10 pb-4">
+                        <i class="fas fa-server text-3xl text-orange-500"></i>
+                        <h3 class="text-xl font-bold text-white">Data & Ops</h3>
+                    </div>
+                    <ul class="space-y-3 text-slate-400 text-sm">
+                        <li class="flex items-center justify-between"><span>MongoDB & MySQL</span> <i class="fas fa-database text-green-500"></i></li>
+                        <li class="flex items-center justify-between"><span>PostgreSQL</span> <i class="fas fa-database text-blue-400"></i></li>
+                        <li class="flex items-center justify-between"><span>Docker & Nginx</span> <i class="fab fa-docker text-blue-500"></i></li>
+                        <li class="flex items-center justify-between"><span>Linux Server</span> <i class="fab fa-linux text-yellow-500"></i></li>
+                        <li class="flex items-center justify-between"><span>Git & GitHub</span> <i class="fab fa-git-alt text-red-500"></i></li>
+                    </ul>
+                </div>
+
+                <div class="bg-cardBg/80 backdrop-blur-md p-6 rounded-2xl border border-white/5 hover:border-accent/50 transition-all duration-300 group hover:transform hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(59,130,246,0.15)]" data-aos="flip-up" data-aos-delay="300">
+                    <div class="flex items-center gap-3 mb-6 border-b border-white/10 pb-4">
+                        <i class="fas fa-network-wired text-3xl text-blue-500"></i>
+                        <h3 class="text-xl font-bold text-white">IT Support</h3>
+                    </div>
+                    <ul class="space-y-3 text-slate-400 text-sm">
+                        <li class="flex items-center justify-between"><span>CCTV Installation</span> <i class="fas fa-video text-slate-400"></i></li>
+                        <li class="flex items-center justify-between"><span>Hardware Repair</span> <i class="fas fa-tools text-slate-400"></i></li>
+                        <li class="flex items-center justify-between"><span>MikroTik Config</span> <i class="fas fa-wifi text-blue-400"></i></li>
+                        <li class="flex items-center justify-between"><span>LAN/WAN Setup</span> <i class="fas fa-ethernet text-green-400"></i></li>
+                        <li class="flex items-center justify-between"><span>Troubleshooting</span> <i class="fas fa-bug text-red-400"></i></li>
+                    </ul>
+                </div>
+
+                <div class="bg-cardBg/80 backdrop-blur-md p-6 rounded-2xl border border-white/5 hover:border-accent/50 transition-all duration-300 group hover:transform hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(16,185,129,0.15)]" data-aos="flip-up" data-aos-delay="400">
+                    <div class="flex items-center gap-3 mb-6 border-b border-white/10 pb-4">
+                        <i class="fas fa-microchip text-3xl text-emerald-500"></i>
+                        <h3 class="text-xl font-bold text-white">IoT Systems</h3>
+                    </div>
+                    <ul class="space-y-3 text-slate-400 text-sm">
+                        <li class="flex items-center justify-between"><span>Arduino Programming</span> <i class="fas fa-robot text-teal-400"></i></li>
+                        <li class="flex items-center justify-between"><span>ESP32 / ESP8266</span> <i class="fas fa-broadcast-tower text-teal-400"></i></li>
+                        <li class="flex items-center justify-between"><span>Raspberry Pi</span> <i class="fab fa-raspberry-pi text-red-500"></i></li>
+                        <li class="flex items-center justify-between"><span>Sensors & Actuators</span> <i class="fas fa-rss text-orange-400"></i></li>
+                    </ul>
+                </div>
+
+                <div class="bg-cardBg/80 backdrop-blur-md p-6 rounded-2xl border border-white/5 hover:border-accent/50 transition-all duration-300 group hover:transform hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(168,85,247,0.15)]" data-aos="flip-up" data-aos-delay="500">
+                    <div class="flex items-center gap-3 mb-6 border-b border-white/10 pb-4">
+                        <i class="fas fa-brain text-3xl text-purple-500"></i>
+                        <h3 class="text-xl font-bold text-white">Creative & AI</h3>
+                    </div>
+                    <ul class="space-y-3 text-slate-400 text-sm">
+                        <li class="flex items-center justify-between"><span>Blender 3D</span> <i class="fas fa-cube text-orange-500"></i></li>
+                        <li class="flex items-center justify-between"><span>Unity Game Dev</span> <i class="fab fa-unity text-white"></i></li>
+                        <li class="flex items-center justify-between"><span>Adobe (Ps, Pr, Ae)</span> <i class="fas fa-pen-nib text-blue-500"></i></li>
+                        <li class="flex items-center justify-between"><span>RAG System / LLM</span> <i class="fas fa-robot text-purple-400"></i></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-24 relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16" data-aos="fade-right">
+                <div>
+                    <h2 class="text-4xl font-bold text-white mb-4">Featured <span class="text-accent">Projects</span></h2>
+                    <div class="w-20 h-1 bg-accent rounded-full"></div>
+                </div>
+                <p class="text-slate-500 mt-4 md:mt-0 text-right">Selected works from <br>industrial experience.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                
+                <div class="group relative rounded-3xl overflow-hidden bg-cardBg/90 border border-white/10 hover:border-accent/50 transition-all duration-300 shadow-2xl" data-aos="fade-up">
+                    <div class="h-64 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-slate-900/20 group-hover:bg-transparent transition-all duration-300 z-10"></div>
+                        <img src="img/jiwa.png" alt="Jiwa Group Corporate Web" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-2xl font-bold text-white group-hover:text-accent transition-colors">Jiwa Group (Janji Jiwa)</h3>
+                            <span class="text-xs font-bold text-red-400 bg-red-400/10 px-3 py-1 rounded-full border border-red-400/20">Corporate</span>
+                        </div>
+                        <p class="text-slate-400 mb-6 text-sm leading-relaxed">
+                            Architected and developed a high-performance corporate digital ecosystem for a leading F&B franchise. Focused on delivering a seamless responsive experience, optimizing SEO structure, and implementing a scalable backend architecture to handle high-volume user traffic and internal data management.
+                        </p>
+                        <div class="flex gap-3 text-xl text-slate-500">
+                            <i class="fab fa-react hover:text-[#61DAFB] transition" title="React.js"></i>
+                            <i class="fas fa-server hover:text-slate-300 transition" title="Scalable Architecture"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative rounded-3xl overflow-hidden bg-cardBg/90 border border-white/10 hover:border-accent/50 transition-all duration-300 shadow-2xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-64 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-slate-900/20 group-hover:bg-transparent transition-all duration-300 z-10"></div>
+                        <img src="img/foodmap.png" alt="FoodMaps Application" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-2xl font-bold text-white group-hover:text-accent transition-colors">FoodMaps Culinary</h3>
+                            <span class="text-xs font-bold text-orange-400 bg-orange-400/10 px-3 py-1 rounded-full border border-orange-400/20">Public App</span>
+                        </div>
+                        <p class="text-slate-400 mb-6 text-sm leading-relaxed">
+                            Engineered a comprehensive culinary directory platform for West Java, integrating advanced mapping features and location-based services. Prioritized UI/UX design principles to ensure accessibility across devices, resulting in an intuitive discovery experience for local gastronomy.
+                        </p>
+                        <div class="flex gap-3 text-xl text-slate-500">
+                            <i class="fab fa-js hover:text-yellow-400 transition" title="Advanced JavaScript"></i>
+                            <i class="fab fa-css3 hover:text-blue-500 transition" title="Modern UI/UX"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative rounded-3xl overflow-hidden bg-cardBg/90 border border-white/10 hover:border-accent/50 transition-all duration-300 shadow-2xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-64 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-slate-900/20 group-hover:bg-transparent transition-all duration-300 z-10"></div>
+                        <img src="img/TFG.png" alt="Tactical Floor Game Simulation" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-2xl font-bold text-white group-hover:text-accent transition-colors">Brimob TFG Simulation</h3>
+                            <span class="text-xs font-bold text-purple-400 bg-purple-400/10 px-3 py-1 rounded-full border border-purple-400/20">Sim System</span>
+                        </div>
+                        <p class="text-slate-400 mb-6 text-sm leading-relaxed">
+                            Developed a complex Tactical Floor Game (TFG) simulation system utilized for paramilitary training and strategic assessment by PT Dirgantara Indonesia. The application handles intricate logic states, real-time strategy visualization, and post-simulation analytics for performance review.
+                        </p>
+                        <div class="flex gap-3 text-xl text-slate-500">
+                            <i class="fas fa-code hover:text-blue-400 transition" title="Complex Logic"></i>
+                            <i class="fas fa-chess hover:text-white transition" title="Strategy Algorithms"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative rounded-3xl overflow-hidden bg-cardBg/90 border border-white/10 hover:border-accent/50 transition-all duration-300 shadow-2xl" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-64 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-slate-900/20 group-hover:bg-transparent transition-all duration-300 z-10"></div>
+                        <img src="img/portshipping.PNG" alt="Port & Shipping Simulator" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-2xl font-bold text-white group-hover:text-accent transition-colors">Port & Shipping Simulator</h3>
+                            <span class="text-xs font-bold text-blue-500 bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20">Desktop App</span>
+                        </div>
+                        <p class="text-slate-400 mb-6 text-sm leading-relaxed">
+                            Designed a robust desktop-based simulation apparatus modeling end-to-end seaport logistics. The system accurately simulates the entire cargo lifecycle—from goods arrival and transportation to final shipping—providing a critical tool for operational analysis and process optimization.
+                        </p>
+                        <div class="flex gap-3 text-xl text-slate-500">
+                            <i class="fab fa-python hover:text-[#3776AB] transition" title="Python"></i>
+                            <i class="fas fa-desktop hover:text-slate-300 transition" title="Desktop App"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-white/10 bg-darkBg/80 backdrop-blur-md text-center relative z-10">
+        <div class="container mx-auto px-6">
+            <h3 class="text-2xl font-bold text-white mb-8">Let's Collaborate</h3>
+            <div class="flex justify-center gap-8 mb-8">
+                <a href="https://github.com/bebasid" target="_blank" class="text-3xl text-slate-500 hover:text-white transition-colors hover:scale-110 transform"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/ariqaqilla" target="_blank" class="text-3xl text-slate-500 hover:text-[#0077b5] transition-colors hover:scale-110 transform"><i class="fab fa-linkedin"></i></a>
+                <a href="https://wa.me/6285721720786" target="_blank" class="text-3xl text-slate-500 hover:text-green-500 transition-colors hover:scale-110 transform"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:ariqaqillaaa@gmail.com" class="text-3xl text-slate-500 hover:text-red-500 transition-colors hover:scale-110 transform"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p class="text-slate-600 text-sm">&copy; 2021 Ariq Aqilla. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true, offset: 50, duration: 800 });
+    </script>
+
+    <script>
+        // (Script typing yang sama seperti sebelumnya, biarkan di sini)
+        var TxtType = function(el, toRotate, period) {
+            this.toRotate = toRotate;
+            this.el = el;
+            this.loopNum = 0;
+            this.period = parseInt(period, 10) || 2000;
+            this.txt = '';
+            this.tick();
+            this.isDeleting = false;
+        };
+        TxtType.prototype.tick = function() {
+            var i = this.loopNum % this.toRotate.length;
+            var fullTxt = this.toRotate[i];
+            if (this.isDeleting) { this.txt = fullTxt.substring(0, this.txt.length - 1); } 
+            else { this.txt = fullTxt.substring(0, this.txt.length + 1); }
+            this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+            var that = this;
+            var delta = 150 - Math.random() * 100;
+            if (this.isDeleting) { delta /= 2; }
+            if (!this.isDeleting && this.txt === fullTxt) { delta = this.period; this.isDeleting = true; } 
+            else if (this.isDeleting && this.txt === '') { this.isDeleting = false; this.loopNum++; delta = 500; }
+            setTimeout(function() { that.tick(); }, delta);
+        };
+        window.onload = function() {
+            var elements = document.getElementsByClassName('typewrite');
+            for (var i=0; i<elements.length; i++) {
+                var toRotate = elements[i].getAttribute('data-type');
+                var period = elements[i].getAttribute('data-period');
+                if (toRotate) { new TxtType(elements[i], JSON.parse(toRotate), period); }
+            }
+            var css = document.createElement("style");
+            css.type = "text/css";
+            css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #38bdf8}";
+            document.body.appendChild(css);
+        };
+    </script>
+
+    <script>
+        const canvas = document.getElementById('canvas-bg');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let particlesArray;
+
+        // Handle Mouse
+        const mouse = { x: null, y: null, radius: 150 }
+        window.addEventListener('mousemove', function(event) {
+            mouse.x = event.x;
+            mouse.y = event.y;
+        });
+
+        // Create Particle
+        class Particle {
+            constructor(x, y, directionX, directionY, size, color) {
+                this.x = x;
+                this.y = y;
+                this.directionX = directionX;
+                this.directionY = directionY;
+                this.size = size;
+                this.color = color;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+                ctx.fillStyle = '#38bdf8'; // Cyan color nodes
+                ctx.fill();
+            }
+            update() {
+                if (this.x > canvas.width || this.x < 0) this.directionX = -this.directionX;
+                if (this.y > canvas.height || this.y < 0) this.directionY = -this.directionY;
+
+                // Mouse interaction
+                let dx = mouse.x - this.x;
+                let dy = mouse.y - this.y;
+                let distance = Math.sqrt(dx*dx + dy*dy);
+                
+                if (distance < mouse.radius + this.size){
+                    if (mouse.x < this.x && this.x < canvas.width - this.size * 10) this.x += 10;
+                    if (mouse.x > this.x && this.x > this.size * 10) this.x -= 10;
+                    if (mouse.y < this.y && this.y < canvas.height - this.size * 10) this.y += 10;
+                    if (mouse.y > this.y && this.y > this.size * 10) this.y -= 10;
+                }
+                this.x += this.directionX;
+                this.y += this.directionY;
+                this.draw();
+            }
+        }
+
+        function init() {
+            particlesArray = [];
+            let numberOfParticles = (canvas.height * canvas.width) / 9000;
+            for (let i = 0; i < numberOfParticles; i++) {
+                let size = (Math.random() * 2) + 1;
+                let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
+                let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
+                let directionX = (Math.random() * 2) - 1; // Speed
+                let directionY = (Math.random() * 2) - 1;
+                let color = '#38bdf8';
+                particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
+            }
+        }
+
+        // Connecting lines
+        function connect() {
+            let opacityValue = 1;
+            for (let a = 0; a < particlesArray.length; a++) {
+                for (let b = a; b < particlesArray.length; b++) {
+                    let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) + 
+                                   ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
+                    if (distance < (canvas.width/7) * (canvas.height/7)) {
+                        opacityValue = 1 - (distance/20000);
+                        ctx.strokeStyle = 'rgba(56, 189, 248,' + opacityValue + ')'; // Line color
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                        ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            ctx.clearRect(0, 0, innerWidth, innerHeight);
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+            }
+            connect();
+        }
+
+        window.addEventListener('resize', function(){
+            canvas.width = innerWidth;
+            canvas.height = innerHeight;
+            init();
+        });
+
+        init();
+        animate();
+    </script>
+</body>
+</html>
